@@ -1,4 +1,4 @@
-# Ex.No:3b To create a two screens , first screen will take one number input from user. After click on Factorial button, second screen will open and it should display factorial of the same number using Explicit Intents.
+# Ex.No:4 To create a two screens , first screen will take one number input from user. After click on Factorial button, second screen will open and it should display factorial of the same number using Explicit Intents.
 
 
 ## AIM:
@@ -30,84 +30,98 @@ Developed by: Ann Blessy Philips
 Registeration Number : 212222040008
 */
 ```
+
 ### In activity_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFF2F4"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="266dp"
-        android:layout_height="139dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Explicit Intent"
-        android:textAlignment="center"
-        android:textColor="#3F51B5"
-        android:textSize="48sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+    <EditText
+        android:id="@+id/input_field"
+        android:layout_width="252dp"
+        android:layout_height="48dp"
+        android:hint="Enter a number"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:fontFamily="sans-serif-black"
-        android:text="1st Activity"
-        android:textAlignment="center"
-        android:textColor="#03A9F4"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="132dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="260dp"
-        android:backgroundTint="#5EB7DF"
-        android:fontFamily="sans-serif-black"
-        android:onClick="newsScreen"
-        android:text="NEXT"
+        android:id="@+id/factorial_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D26BDA"
+        android:text="FIND FACTORIAL"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_field" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="261dp"
+        android:layout_height="99dp"
+        android:text="FACTORIAL FINDER"
+        android:textAlignment="center"
+        android:textColor="#AE218F"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/input_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.72" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 ### In MainActivity.java
 ```
-package com.example.explicit_intent;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+package com.example.explicitintent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-    public void newsScreen(View view) {
-        Intent i = new Intent(getApplicationContext(), MainActivity2.class);
-        startActivity(i);
+        setContentView(R.layout.activity1);
+
+        // Get references to UI elements
+        final EditText inputField = findViewById(R.id.input_field);
+        Button factorialButton = findViewById(R.id.factorial_button);
+
+        // Set up the "Explicit Intent" button
+        factorialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the input number from the text field
+                int inputNumber = Integer.parseInt(inputField.getText().toString());
+
+                // Create an Intent to start the FactorialActivity
+                Intent explicitIntent = new Intent(MainActivity.this, MainActivity2.class);
+                // Pass the input number as an extra
+                explicitIntent.putExtra("input_number", inputNumber);
+
+                // Start the FactorialActivity
+                startActivity(explicitIntent);
+            }
+        });
     }
 }
 ```
@@ -120,75 +134,77 @@ public class MainActivity extends AppCompatActivity {
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFF2F4"
     tools:context=".MainActivity2">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="191dp"
-        android:layout_height="81dp"
-        android:layout_marginBottom="184dp"
-        android:backgroundTint="#E15A88"
-        android:onClick="homeScreen"
-        android:text="Go Back"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/result_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
-        android:fontFamily="sans-serif-black"
-        android:text="2nd Activity"
-        android:textAlignment="center"
-        android:textColor="#DA91AA"
+        android:text="The Factorial is : "
+        android:textColor="#AE218F"
         android:textSize="34sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="236dp"
-        android:layout_height="149dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Explicit Intent"
-        android:textAlignment="center"
-        android:textColor="#E91E63"
-        android:textSize="48sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintVertical_bias="0.349" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="122dp"
+        android:layout_height="65dp"
+        android:backgroundTint="#C362CA"
+        android:onClick="back"
+        android:text="BACK"
+        android:textColorLink="#C85A5A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_text_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 ### In MainActivity2.java
 ```
-package com.example.explicit_intent;
+package com.example.explicitintent;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.math.BigInteger;
 
 public class MainActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
+
+        // Get the input number from the Intent extra
+        int inputNumber = getIntent().getIntExtra("input_number", 0);
+
+        // Calculate the factorial of the input number using BigInteger
+        BigInteger factorial = BigInteger.ONE;
+        for (int i = 2; i <= inputNumber; i++) {
+            factorial = factorial.multiply(BigInteger.valueOf(i));
+        }
+
+        // Display the factorial result in a TextView
+        TextView resultTextView = findViewById(R.id.result_text_view);
+        resultTextView.setText("Factorial of " + inputNumber + " is: " + factorial);
     }
-    public void homeScreen(View view) {
+
+    public void back(View view) {
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
     }
@@ -197,9 +213,9 @@ public class MainActivity2 extends AppCompatActivity {
 
 ## OUTPUT
 
-![WhatsApp Image 2024-03-11 at 20 07 05_1a48df6f](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/b6a2f370-a09b-46aa-b567-07e9069fb055)
+![Screenshot_20240318_091735](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/809485c9-d561-46aa-b61f-fd2cbeffc4ba)
 
-![WhatsApp Image 2024-03-11 at 20 07 05_ba671892](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/e37e801b-dcfa-4e33-b95a-00d414d34858)
+![Screenshot_20240318_091805](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/bfffb32a-61bd-424c-9d25-c1f908f564dc)
 
 
 
