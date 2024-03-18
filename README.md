@@ -213,9 +213,9 @@ public class MainActivity2 extends AppCompatActivity {
 
 ## OUTPUT
 
-![Screenshot_20240318_091735](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/809485c9-d561-46aa-b61f-fd2cbeffc4ba)
+![WhatsApp Image 2024-03-18 at 09 27 01_a9778e34](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/1022a878-6666-4a02-ac22-a7868f9d4b1f)
 
-![Screenshot_20240318_091805](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/bfffb32a-61bd-424c-9d25-c1f908f564dc)
+![WhatsApp Image 2024-03-18 at 09 27 02_7e706958](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/dfdb0303-c97a-4730-85f7-ecf8bb0dcea8)
 
 
 
