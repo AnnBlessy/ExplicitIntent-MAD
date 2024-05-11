@@ -4,7 +4,6 @@
 ## AIM:
 To create a two screens , first screen will take one number input from user. After click on Factorial button, second screen will open and it should display factorial of the same number using Explicit Intents.
 
-
 ## EQUIPMENTS REQUIRED:
 
 Latest Version Android Studio
@@ -21,7 +20,6 @@ Step 4: Working with the activity_main2.xml File
 
 Step 5: Working with the MainActivity2 File
 
-
 ## PROGRAM:
 ```
 /*
@@ -30,7 +28,6 @@ Developed by: Ann Blessy Philips
 Registeration Number : 212222040008
 */
 ```
-
 ### In activity_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -83,7 +80,6 @@ Registeration Number : 212222040008
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-
 ### In MainActivity.java
 ```
 package com.example.explicitintent;
@@ -125,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-
 ### In activity_main2.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -168,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-
 ### In MainActivity2.java
 ```
 package com.example.explicitintent;
@@ -212,11 +206,7 @@ public class MainActivity2 extends AppCompatActivity {
 ```
 
 ## OUTPUT
-
-![WhatsApp Image 2024-03-18 at 09 27 01_a9778e34](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/1022a878-6666-4a02-ac22-a7868f9d4b1f)
-
-![WhatsApp Image 2024-03-18 at 09 27 02_7e706958](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/dfdb0303-c97a-4730-85f7-ecf8bb0dcea8)
-
+![WhatsApp Image 2024-03-18 at 09 27 01_a9778e34](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/b3d18fd4-289f-4577-b1ec-98669bd19de5)            ![WhatsApp Image 2024-03-18 at 09 27 02_7e706958](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/f9aac70d-92cf-4f59-bf65-afa56e23c3d0)
 
 
 ## RESULT
