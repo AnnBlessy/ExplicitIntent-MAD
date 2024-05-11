@@ -1,11 +1,9 @@
 # Ex.No:4 To create a two screens , first screen will take one number input from user. After click on Factorial button, second screen will open and it should display factorial of the same number using Explicit Intents.
 
-
 ## AIM:
 To create a two screens , first screen will take one number input from user. After click on Factorial button, second screen will open and it should display factorial of the same number using Explicit Intents.
 
 ## EQUIPMENTS REQUIRED:
-
 Latest Version Android Studio
 
 ## ALGORITHM:
@@ -88,11 +86,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,19 +162,14 @@ public class MainActivity extends AppCompatActivity {
 ### In MainActivity2.java
 ```
 package com.example.explicitintent;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.math.BigInteger;
 
 public class MainActivity2 extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -192,12 +183,10 @@ public class MainActivity2 extends AppCompatActivity {
         for (int i = 2; i <= inputNumber; i++) {
             factorial = factorial.multiply(BigInteger.valueOf(i));
         }
-
         // Display the factorial result in a TextView
         TextView resultTextView = findViewById(R.id.result_text_view);
         resultTextView.setText("Factorial of " + inputNumber + " is: " + factorial);
     }
-
     public void back(View view) {
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
@@ -206,8 +195,7 @@ public class MainActivity2 extends AppCompatActivity {
 ```
 
 ## OUTPUT
-![WhatsApp Image 2024-03-18 at 09 27 01_a9778e34](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/b3d18fd4-289f-4577-b1ec-98669bd19de5)            ![WhatsApp Image 2024-03-18 at 09 27 02_7e706958](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/f9aac70d-92cf-4f59-bf65-afa56e23c3d0)
-
+![WhatsApp Image 2024-03-18 at 09 27 01_a9778e34](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/b3d18fd4-289f-4577-b1ec-98669bd19de5) __  ![WhatsApp Image 2024-03-18 at 09 27 02_7e706958](https://github.com/AnnBlessy/ExplicitIntent-MAD/assets/119477835/f9aac70d-92cf-4f59-bf65-afa56e23c3d0)
 
 ## RESULT
 Thus a Simple Android Application create a Explicit Intents using Android Studio is developed and executed successfully.
